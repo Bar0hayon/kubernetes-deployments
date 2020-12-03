@@ -23,14 +23,14 @@ kafka-k8s configuration using strimzi
 
 ### creating a kafka cluster (on top of k8s)
 1. clone this repo and cd into it
-2. ```kubectl create -f storage-class -n my-kafka-project```
-3. ```kubectl create -f persistent-volumes -n my-kafka-project```
-4. ```kubectl create -f kafka-cluster -n my-kafka-project```
+2. ```kubectl create -f storage-class.yaml -n my-kafka-project```
+3. ```kubectl create -f persistent-volume.yamls -n my-kafka-project```
+4. ```kubectl create -f kafka-cluster.yaml -n my-kafka-project```
 5. wait for the cluster to be deployed ```kubectl wait kafka/my-cluster --for=condition=Ready --timeout=300s -n my-kafka-project```
 
 ## Usage
 ### creat topic
-```kubectl create -f kafka-topic -n my-kafka-project```
+```kubectl create -f kafka-topic.yaml -n my-kafka-project```
 
 ### getting kafka bootstrap-server
 ```kubectl get kafka KAFKA-CLUSTER-NAME -o=jsonpath='{.status.listeners[?(@.type=="external")].bootstrapServers}{"\n"}```
