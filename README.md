@@ -44,3 +44,8 @@ kafka-console-producer.sh --bootstrap-server <bootstrap_server> --topic my-topic
 ```
 kafka-console-consumer.sh --bootstrap-server <bootstrap_server> --topic my-topic
 ```
+
+## Links
+* [strimzi quickstart](https://strimzi.io/docs/operators/master/quickstart.html#proc-using-amq-streams-str)
+* [strimzi docs](https://strimzi.io/docs/operators/latest/full/using.html#assembly-configuring-external-listeners-str)
+* [strimzi repo](https://github.com/strimzi)
