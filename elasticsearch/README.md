@@ -28,6 +28,16 @@ kubernetes cluster up and running
   kubectl create -f elasticsearch_deployment.yaml -n elastic-system
   ```
   
+### Kibana
+#### Installation
+```
+./templates/kibana_deployment.yaml
+```
+#### kibana URL
+```
+https://localhost:30300
+```
+  
 ## Usage
 * get cluster login credentials
   ```
