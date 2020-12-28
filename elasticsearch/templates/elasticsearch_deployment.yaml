@@ -1,0 +1,29 @@
+apiVersion: elasticsearch.k8s.elastic.co/v1
+kind: Elasticsearch
+metadata:
+  name: elasticsearch-cluster
+spec:
+  version: 7.10.1
+  nodeSets:
+  - name: default
+    count: 2
+    config:
+      node.store.allow_mmap: false
+      node.max_local_storage_nodes: 10
+    volumeClaimTemplates:
+    - metadata:
+        name: elasticsearch-data
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi
+        storageClassName: elasticsearch-storage
+  http:
+    service:
+      spec:
+        type: NodePort
+        ports:
+        - port: 9200
+          nodePort: 30200
