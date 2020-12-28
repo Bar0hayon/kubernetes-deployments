@@ -1,0 +1,18 @@
+apiVersion: kibana.k8s.elastic.co/v1
+kind: Kibana
+metadata:
+  name: kibana
+spec:
+  version: 7.10.1
+  http:
+   service:
+     spec:
+       type: NodePort
+       ports:
+         - port: 5601
+           nodePort: 30300
+  count: 1
+  elasticsearch:
+    url: https://localhost:30200
+  elasticsearchRef:
+    name: elasticsearch-cluster
